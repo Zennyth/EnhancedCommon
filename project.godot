@@ -12,3 +12,4 @@ config_version=5
 
 config/name="Enhanced Common"
 config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.png"
