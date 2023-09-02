@@ -7,7 +7,7 @@ static func enable_node(node: Node, is_enabled: bool = true, visible: bool = fal
 	node.set_physics_process(is_enabled)
 	node.set_process_input(is_enabled)
 	
-	if not visible and "visible" in node:
+	if visible and "visible" in node:
 		node.visible = is_enabled
 	
 static func delete_children(node: Node):
