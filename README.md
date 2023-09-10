@@ -55,9 +55,5 @@ Enhanced Common is open-source under the MIT license. Please refer to the [LICEN
 ---
 
 <p align="center">
-    Made with ❤️ by [Your Name] for the Godot Community.
+    Made with ❤️ by Zennyth for the Godot Community.
 </p>
-
----
-
-**Note**: Remember to replace `[Your Name]` with your actual name or username, and you might also want to create or link to an actual logo for your addon where `![Enhanced Common Logo](./addons/enhanced_common/icons/logo.png)` is mentioned.
