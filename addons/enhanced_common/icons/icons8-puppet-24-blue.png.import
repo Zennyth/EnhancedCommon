@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buuigurgeqi57"
-path="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"
+uid="uid://m1p07qjypv0l"
+path="res://.godot/imported/icons8-puppet-24-blue.png-88b109a7edab4c29cc566d58f1166521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"]
+source_file="res://addons/enhanced_common/icons/icons8-puppet-24-blue.png"
+dest_files=["res://.godot/imported/icons8-puppet-24-blue.png-88b109a7edab4c29cc566d58f1166521.ctex"]
 
 [params]
 

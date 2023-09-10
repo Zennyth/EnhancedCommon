@@ -11,4 +11,6 @@ config_version=5
 [application]
 
 config/name="Enhanced Common"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/tags=PackedStringArray("addon")
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.png"

@@ -8,7 +8,7 @@ func _ready() -> void:
 	area.register_component(self)
 
 
-func is_node_entered_valid(node: Node2D) -> bool:
+func is_node_valid(node: Node2D) -> bool:
 	return true
 
 
