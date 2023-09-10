@@ -1,4 +1,4 @@
-extends Velocity2DComponent
+extends Motion2DComponent
 class_name Knockback
 
 @export var knockback := Vector2.ZERO:
@@ -23,4 +23,4 @@ func _physics_process(_delta: float):
 func set_knockback(value) -> void:
     knockback = value
     NodeUtils.enable_node(self, knockback.length() > 0)
-    velocity.set_force(str(self), knockback)
+    motion.set_force(str(self), knockback)
