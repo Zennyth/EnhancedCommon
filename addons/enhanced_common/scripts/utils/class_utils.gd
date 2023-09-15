@@ -38,7 +38,7 @@ func get_inheriters_from_class(_name: String) -> Array:
 	
 	return classes
 
-func has_custom_class(object: Object) -> Dictionary:
+func has_custom_class(object: Object) -> bool:
 	return custom_classes_by_path.has(object.get_script().resource_path)
 
 func get_custom_class(object: Object) -> Dictionary:
