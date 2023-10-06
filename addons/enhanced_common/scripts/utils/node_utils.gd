@@ -58,5 +58,22 @@ static func find_node(node, class_to_find, class_to_stop = null):
 	
 	return descendant
 
+static func find_parent_node(node, class_to_find, class_to_stop = null) -> Node:
+	if node == null:
+		return null
+
+	var parent: Node = node.get_parent()
+
+	if parent == null:
+		return null
+	
+	if class_to_stop != null and is_instance_of(parent, class_to_stop):
+		return null
+	
+	if is_instance_of(parent, class_to_find):
+		return parent
+	
+	return find_parent_node(parent, class_to_find, class_to_stop)
+
 static func is_exported_property_null(node: Node, property_name: String) -> bool:
 	return node.get("metadata/_editor_prop_ptr_" + property_name) == null
