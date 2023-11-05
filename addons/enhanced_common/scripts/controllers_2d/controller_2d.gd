@@ -31,8 +31,11 @@ func set_move_direction(value) -> void:
 	
 	if is_above_threshold(move_direction) and is_controllable:
 		moving.emit()
+		watching_direction = move_direction
 	else:
 		standing.emit()
+
+var watching_direction: Vector2 = Vector2.ZERO
 
 
 var aim_direction: Vector2 = Vector2.ZERO:

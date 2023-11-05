@@ -55,4 +55,3 @@ func get_custom_classes_from_exported_properties(object) -> Array:
 
 func get_custom_classes_from_custom_class(custom_class_name: String) -> Array:
 	return get_custom_classes_from_exported_properties(load(get_custom_class_by_name(custom_class_name).path).new()).map(func(p: Dictionary): return get_custom_class_by_name(p.hint_string))
-
