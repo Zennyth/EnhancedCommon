@@ -37,7 +37,7 @@ func _ready() -> void:
 	for i in len(items):
 		var item = items[i]
 
-		if "icon" in item and item.icon != null:
+		if "icon" in item and item.icon != null and item.icon != "":
 			var texture: Texture2D = load(item.icon)
 			var image := texture.get_image()
 			image.resize(48, 48, Image.INTERPOLATE_NEAREST)
