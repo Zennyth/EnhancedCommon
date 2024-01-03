@@ -41,7 +41,6 @@ func _ready() -> void:
 			var texture: Texture2D = load(item.icon)
 			var image := texture.get_image()
 			image.resize(48, 48, Image.INTERPOLATE_NEAREST)
-			var second_texture := ImageTexture.create_from_image(image)
 			add_icon_item(texture, item.name)
 		else:
 			add_item(item.name)
