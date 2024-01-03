@@ -2,35 +2,38 @@
 extends Node2D
 class_name RotationDirectionControllable2D
 
-enum Mode {
-	MOVE,
-	AIM,
-}
+const DirectionType = Controller2D.DirectionType
 
 @export var controller: Controller2D
 @export var target: Node2D
 @export var inverse_rotation: bool = false
-@export var mode: Mode = Mode.MOVE
+@export var direction_type: DirectionType = DirectionType.MOVE:
+	set(value):
+		direction_type = value
+		if controller == null:
+			return
+		_on_direction_changed(controller.get_direction(direction_type), direction_type)
+# One shot sync
+var single_sync: bool = false:
+	set(value):
+		single_sync = value
+		is_synced = false 
+var is_synced: bool = false 
+
 
 func _ready() -> void:
-	controller.moving.connect(_on_moving)
-	controller.aim_direction_changed.connect(_on_aim_direction_changed)
+	controller.direction_changed.connect(_on_direction_changed)
 
-func _on_moving() -> void:
-	if mode != Mode.MOVE:
-		return
-
-	target.scale.x = -1 if get_orientation_from_direction(controller.move_direction) else 1
-
-func _on_aim_direction_changed(_direction: Vector2) -> void:
-	if mode != Mode.AIM:
+func _on_direction_changed(direction: Vector2, type: DirectionType) -> void:
+	if direction_type != type or (single_sync == true and is_synced == false):
 		return
 	
-	target.scale.x = -1 if get_orientation_from_direction(controller.aim_direction) else 1
+	is_synced = true 
+	target.scale.x = -1 if get_orientation_from_direction(direction) else 1
 
 func get_orientation_from_direction(direction: Vector2) -> bool:
 	return direction.x > 0 if inverse_rotation else direction.x < 0
-
+	
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings: PackedStringArray = []

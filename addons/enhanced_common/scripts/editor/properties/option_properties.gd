@@ -25,8 +25,8 @@ func initialize(_object: Object, _property: String, _items: Array, _set_first_it
 	set("theme_override_constants/icon_max_width", 20)
 
 
-
 func _ready() -> void:
+	var has_icon: bool = false
 	item_selected.connect(_on_item_selected)
 
 	var is_in_options: bool = items.any(func(item): return item.value == object.get(property))
@@ -38,9 +38,11 @@ func _ready() -> void:
 		var item = items[i]
 
 		if "icon" in item and item.icon != null and item.icon != "":
+			has_icon = true
 			var texture: Texture2D = load(item.icon)
 			var image := texture.get_image()
 			image.resize(48, 48, Image.INTERPOLATE_NEAREST)
+			var second_texture := ImageTexture.create_from_image(image)
 			add_icon_item(texture, item.name)
 		else:
 			add_item(item.name)
@@ -48,14 +50,16 @@ func _ready() -> void:
 		if object.get(property) == item.value:
 			_on_item_selected(i)
 		
+	if not has_icon:
+		expand_icon = false
+		set("theme_override_constants/icon_max_width", 0)
+	
 	if selected > 0:
 		return
 	
 	if set_first_item_as_default == true:
 		_on_item_selected(0)
-
-
-
+	
 
 func _on_item_selected(index: int) -> void:
 	if items.is_empty():
